@@ -60,24 +60,155 @@
 
 
 
-class Person {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+// class Person {
+//     constructor(firstName, lastName) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+
+//     greet() {
+//         console.log("Hi there!");
+//     }
+
+//     compliment(name, object) {
+//         return "That is a wonderful " + object + ", " + name;
+//     }
+// }
+
+// // Creating an instance of the Person class
+// let p = new Person("John", "Doe");
+
+// // Calling the compliment method
+// let compliment = p.compliment("Harry", "hat");
+// console.log(compliment);
+
+
+
+// methods
+
+// class Person{
+//     constructor(firstname,lastname){
+//         this.firstname=firstname;
+//         this.lastname=lastname;
+//     }
+//     greet(){
+//         console.log("hi there! I'm",this.firstname);
+//     }
+// }
+// let p=new Person("kartikey","Patel");
+// p.greet();
+
+//Properties
+// class Person{
+//         constructor(firstname,lastname){
+//             this.firstname=firstname;
+//             this.lastname=lastname;
+//         }
+//     }
+//     let p=new Person("kartikey","Patel");
+//    console.log("hi",p.firstname);
+
+
+// class Person{
+//     #firstname;
+//     #lastname;
+//     constructor(firstname,lastname){
+//         this.#firstname=firstname;
+//         this.#lastname=lastname;
+//     }
+// }
+// let p=new Person("kartikey","Patel");
+// console.log("hi",p.firstname);
+
+
+// class Person{
+//     #firstname;
+//     #lastname;
+//     constructor(firstname,lastname){
+//         if(firstname.startWith("M")){
+//             this.#firstname=firstname;
+//         }else{
+//             this.#firstname="M"+firstname;
+//         }
+//         this.#lastname=lastname;
+//     }
+// }
+// let p=new Person("kay","moon");
+
+
+
+//GETTERS and SETTERS
+
+
+
+// class Person{
+//     #firstname;
+//     #lastname;
+//     constructor(firstname,lastname){
+//         this.#firstname=firstname;
+//         this.#lastname=lastname;
+//     }
+//     get firstname(){
+//         return this.#firstname; //always return keyword use 
+//     }
+//     set firstname(firstname){
+//         this.#firstname=firstname;// set are use for reinitialized the value
+//     }
+//     get lastname(){
+//         return this.#lastname;
+//     }
+//     set lastname(lastname){
+//         this.#lastname=lastname;
+//     }
+// }
+// let p=new Person("kartikey","Patel");
+// console.log(p.firstname);
+
+
+
+// //INHERITENCE
+// class Vehicle{
+//     constructor(color,currentSpeed,maxSpeed){
+//         this.color=color;
+//         this.currentSpeed=currentSpeed;
+//         this.maxSpeed=maxSpeed;
+//     }
+//     move(){
+//         console.log("moving at",this.currentSpeed);
+//     }
+//     accelerate(amount){
+//         this.currentSpeed+=amount;
+//     }
+// }
+// class Motorcycle extends Vehicle{
+//     constructor(color,currentSpeed,maxSpeed,fuel){
+//         super(color,currentSpeed,maxSpeed);//super word in the constructor is calling the constructor fromo the parent
+//         this.fuel=this.fuel;
+//     }
+//     doWheelie(){
+//         console.log("Driving on one wheel!");
+//     }
+// }
+// let motor=new Motorcycle("Black",0,250,"gasoline");
+// console.log(motor.maxSpeed);
+// motor.accelerate(50);
+// motor.move();// wecannot acces any motorcycle specific properties or methods in our vehicle class
+
+//PROTOTYPES
+
+class Person{
+        constructor(firstname,lastname){
+            this.firstname=firstname;
+            this.lastname=lastname;
+        }
+        greet(){
+            console.log("hi there");
+        }
     }
-
-    greet() {
-        console.log("Hi there!");
-    }
-
-    compliment(name, object) {
-        return "That is a wonderful " + object + ", " + name;
-    }
-}
-
-// Creating an instance of the Person class
-let p = new Person("John", "Doe");
-
-// Calling the compliment method
-let compliment = p.compliment("Harry", "hat");
-console.log(compliment);
+    Person.prototype.introduce=function(){
+        console.log("Hi,I'm",this.firstname);
+    };
+    Person.prototype.favoriteColor="green";
+    let p=new Person("Maria","Saga");
+    console.log(p.favoriteColor);
+    p.introduce();
